@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block content %}
+    <h1>Welcome to Flask-Polls</h1>
+    <br/>
+    <h2>Current Polls</h2>
+    <p>Select a poll to participate!</p>
+    <br/>
+    <div class="datagrid">
+    <table>
+      <thead>
+      <tr>
+      <th width="300">Poll</th>
+      <th>Select</th>
+      </tr>
+      </thead>
+        {% for p in polls %}
+        <tr>
+          <td width="300">{{ p.question }}</td>
+          <td><a href="{{ url_for('detail', poll_id = p.id) }}">Select</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block content %}
+    <h1>Welcome to Flask-Polls</h1>
+    <br/>
+    <h2>Results for All Polls</h2>
+    <br>
+    <h3>Polls:</h3>
+    <div class="datagrid">
+      <table>
+      <thead>
+      <tr>
+      <th width="300">Polls</th>
+      <th width="300">Results</th>
+      </tr>
+      </thead>
+        {% for poll in polls %}
+          <tr>
+            <td width="300">{{ poll.question }}</td>
+            <td width="150">Votes</a></td>
+          </tr>
+            {% for choice in poll.choices %}
+              <tr>
+              <td>{{ choice.choice_text }}</td>
+              <td>{{ choice.votes }}</td>
+              </tr>
+            {% endfor %}
+        {% endfor %}
+      </table>
+      </div>
+{% endblock %}
